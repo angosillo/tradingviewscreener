@@ -1,14 +1,27 @@
 {
  "fuente": "mexc",
+ "cambios": {},
  "monedas": 139,
  "días": 30.0,
  "avisos": 104,
  "entradas_al_cierre": 28,
- "ordenes_llenas": 30,
- "motivos_sin_llenar": {
+ "órdenes ema": {
+  "rompió la línea 3": 59,
+  "llena": 30,
   "cierra bajo la línea 2": 14,
+  "tiempo": 1
+ },
+ "órdenes cerca0.25": {
+  "rompió la línea 3": 49,
+  "llena": 51,
   "tiempo": 1,
-  "rompió la línea 3": 59
+  "perdió el mínimo anterior": 3
+ },
+ "órdenes cerca0.5": {
+  "rompió la línea 3": 51,
+  "llena": 44,
+  "tiempo": 1,
+  "perdió el mínimo anterior": 8
  },
  "todas": {
   "cierre A": {
@@ -53,7 +66,7 @@
    "esperanza_5R": 0.67,
    "esperanza_10R": 1.31
   },
-  "límite L1": {
+  "límite EMA20 L1": {
    "señales": 30,
    "por_día": 1.0,
    "IC95_llega_10R": [
@@ -67,7 +80,7 @@
    "esperanza_5R": -0.34,
    "esperanza_10R": -0.04
   },
-  "límite L2": {
+  "límite EMA20 L2": {
    "señales": 30,
    "por_día": 1.0,
    "IC95_llega_10R": [
@@ -81,7 +94,7 @@
    "esperanza_5R": -0.06,
    "esperanza_10R": 0.41
   },
-  "límite L3": {
+  "límite EMA20 L3": {
    "señales": 30,
    "por_día": 1.0,
    "IC95_llega_10R": [
@@ -95,7 +108,63 @@
    "esperanza_5R": -0.16,
    "esperanza_10R": -0.06
   },
-  "mixta L2+A": {
+  "cerca 0.25 ATR S1": {
+   "señales": 51,
+   "por_día": 1.7,
+   "IC95_llega_10R": [
+    6,
+    23
+   ],
+   "llega_1R": 27.5,
+   "llega_3R": 17.6,
+   "llega_5R": 13.7,
+   "llega_10R": 11.8,
+   "esperanza_5R": -0.63,
+   "esperanza_10R": -0.16
+  },
+  "cerca 0.25 ATR S3": {
+   "señales": 51,
+   "por_día": 1.7,
+   "IC95_llega_10R": [
+    4,
+    21
+   ],
+   "llega_1R": 33.3,
+   "llega_3R": 21.6,
+   "llega_5R": 15.7,
+   "llega_10R": 9.8,
+   "esperanza_5R": -0.35,
+   "esperanza_10R": -0.22
+  },
+  "cerca 0.5 ATR S1": {
+   "señales": 44,
+   "por_día": 1.47,
+   "IC95_llega_10R": [
+    2,
+    18
+   ],
+   "llega_1R": 25.0,
+   "llega_3R": 18.2,
+   "llega_5R": 13.6,
+   "llega_10R": 6.8,
+   "esperanza_5R": -0.45,
+   "esperanza_10R": -0.52
+  },
+  "cerca 0.5 ATR S3": {
+   "señales": 44,
+   "por_día": 1.47,
+   "IC95_llega_10R": [
+    1,
+    15
+   ],
+   "llega_1R": 36.4,
+   "llega_3R": 18.2,
+   "llega_5R": 15.9,
+   "llega_10R": 4.5,
+   "esperanza_5R": -0.24,
+   "esperanza_10R": -0.7
+  },
+  "mixta EMA20 L2 + cierre A": {
    "señales": 39,
    "por_día": 1.3,
    "IC95_llega_10R": [
@@ -109,7 +178,7 @@
    "esperanza_5R": -0.03,
    "esperanza_10R": 0.58
   },
-  "mixta L3+C": {
+  "mixta EMA20 L3 + cierre C": {
    "señales": 39,
    "por_día": 1.3,
    "IC95_llega_10R": [
@@ -122,6 +191,34 @@
    "llega_10R": 17.9,
    "esperanza_5R": 0.28,
    "esperanza_10R": 0.87
+  },
+  "mixta cerca 0.25 S1 + cierre A": {
+   "señales": 61,
+   "por_día": 2.03,
+   "IC95_llega_10R": [
+    9,
+    28
+   ],
+   "llega_1R": 36.1,
+   "llega_3R": 23.0,
+   "llega_5R": 18.0,
+   "llega_10R": 16.4,
+   "esperanza_5R": -0.32,
+   "esperanza_10R": 0.4
+  },
+  "mixta cerca 0.5 S1 + cierre A": {
+   "señales": 57,
+   "por_día": 1.9,
+   "IC95_llega_10R": [
+    7,
+    25
+   ],
+   "llega_1R": 38.6,
+   "llega_3R": 24.6,
+   "llega_5R": 19.3,
+   "llega_10R": 14.0,
+   "esperanza_5R": -0.08,
+   "esperanza_10R": 0.3
   }
  },
  "sin MERL ni AAVE": {
@@ -167,7 +264,7 @@
    "esperanza_5R": 0.34,
    "esperanza_10R": 0.64
   },
-  "límite L1": {
+  "límite EMA20 L1": {
    "señales": 28,
    "por_día": 0.93,
    "IC95_llega_10R": [
@@ -181,7 +278,7 @@
    "esperanza_5R": -0.5,
    "esperanza_10R": -0.35
   },
-  "límite L2": {
+  "límite EMA20 L2": {
    "señales": 28,
    "por_día": 0.93,
    "IC95_llega_10R": [
@@ -195,7 +292,7 @@
    "esperanza_5R": -0.2,
    "esperanza_10R": 0.12
   },
-  "límite L3": {
+  "límite EMA20 L3": {
    "señales": 28,
    "por_día": 0.93,
    "IC95_llega_10R": [
@@ -209,7 +306,63 @@
    "esperanza_5R": -0.29,
    "esperanza_10R": -0.36
   },
-  "mixta L2+A": {
+  "cerca 0.25 ATR S1": {
+   "señales": 50,
+   "por_día": 1.67,
+   "IC95_llega_10R": [
+    6,
+    24
+   ],
+   "llega_1R": 26.0,
+   "llega_3R": 18.0,
+   "llega_5R": 14.0,
+   "llega_10R": 12.0,
+   "esperanza_5R": -0.61,
+   "esperanza_10R": -0.13
+  },
+  "cerca 0.25 ATR S3": {
+   "señales": 50,
+   "por_día": 1.67,
+   "IC95_llega_10R": [
+    4,
+    21
+   ],
+   "llega_1R": 34.0,
+   "llega_3R": 22.0,
+   "llega_5R": 16.0,
+   "llega_10R": 10.0,
+   "esperanza_5R": -0.33,
+   "esperanza_10R": -0.2
+  },
+  "cerca 0.5 ATR S1": {
+   "señales": 43,
+   "por_día": 1.43,
+   "IC95_llega_10R": [
+    2,
+    19
+   ],
+   "llega_1R": 25.6,
+   "llega_3R": 18.6,
+   "llega_5R": 14.0,
+   "llega_10R": 7.0,
+   "esperanza_5R": -0.43,
+   "esperanza_10R": -0.5
+  },
+  "cerca 0.5 ATR S3": {
+   "señales": 43,
+   "por_día": 1.43,
+   "IC95_llega_10R": [
+    1,
+    15
+   ],
+   "llega_1R": 37.2,
+   "llega_3R": 18.6,
+   "llega_5R": 16.3,
+   "llega_10R": 4.7,
+   "esperanza_5R": -0.22,
+   "esperanza_10R": -0.69
+  },
+  "mixta EMA20 L2 + cierre A": {
    "señales": 37,
    "por_día": 1.23,
    "IC95_llega_10R": [
@@ -223,7 +376,7 @@
    "esperanza_5R": -0.14,
    "esperanza_10R": 0.37
   },
-  "mixta L3+C": {
+  "mixta EMA20 L3 + cierre C": {
    "señales": 37,
    "por_día": 1.23,
    "IC95_llega_10R": [
@@ -236,6 +389,34 @@
    "llega_10R": 16.2,
    "esperanza_5R": 0.21,
    "esperanza_10R": 0.69
+  },
+  "mixta cerca 0.25 S1 + cierre A": {
+   "señales": 59,
+   "por_día": 1.97,
+   "IC95_llega_10R": [
+    8,
+    27
+   ],
+   "llega_1R": 33.9,
+   "llega_3R": 22.0,
+   "llega_5R": 16.9,
+   "llega_10R": 15.3,
+   "esperanza_5R": -0.39,
+   "esperanza_10R": 0.27
+  },
+  "mixta cerca 0.5 S1 + cierre A": {
+   "señales": 55,
+   "por_día": 1.83,
+   "IC95_llega_10R": [
+    6,
+    24
+   ],
+   "llega_1R": 38.2,
+   "llega_3R": 23.6,
+   "llega_5R": 18.2,
+   "llega_10R": 12.7,
+   "esperanza_5R": -0.15,
+   "esperanza_10R": 0.16
   }
  }
 }
