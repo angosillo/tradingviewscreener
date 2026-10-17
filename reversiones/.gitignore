@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 resultados/*.log
 datos_binance/
+resultados/**/*.log

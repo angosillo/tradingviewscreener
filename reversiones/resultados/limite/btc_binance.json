@@ -1,0 +1,156 @@
+{
+ "señales": 555,
+ "todas": {
+  "señales": 555,
+  "llega_10R": 10.1,
+  "IC95_llega_10R": [
+   8,
+   13
+  ],
+  "esperanza_10R": 0.01,
+  "IC95_esperanza": [
+   -0.27,
+   0.28
+  ]
+ },
+ "tendencia 1h": {
+  "BTC alcista": {
+   "señales": 303,
+   "llega_10R": 11.2,
+   "IC95_llega_10R": [
+    8,
+    15
+   ],
+   "esperanza_10R": 0.12,
+   "IC95_esperanza": [
+    -0.27,
+    0.51
+   ]
+  },
+  "no": {
+   "señales": 252,
+   "llega_10R": 8.7,
+   "IC95_llega_10R": [
+    6,
+    13
+   ],
+   "esperanza_10R": -0.13,
+   "IC95_esperanza": [
+    -0.52,
+    0.25
+   ]
+  }
+ },
+ "tendencia 4h": {
+  "BTC alcista": {
+   "señales": 248,
+   "llega_10R": 12.1,
+   "IC95_llega_10R": [
+    9,
+    17
+   ],
+   "esperanza_10R": 0.22,
+   "IC95_esperanza": [
+    -0.23,
+    0.67
+   ]
+  },
+  "no": {
+   "señales": 307,
+   "llega_10R": 8.5,
+   "IC95_llega_10R": [
+    6,
+    12
+   ],
+   "esperanza_10R": -0.17,
+   "IC95_esperanza": [
+    -0.51,
+    0.18
+   ]
+  }
+ },
+ "momentum 1h": {
+  "BTC alcista": {
+   "señales": 435,
+   "llega_10R": 10.1,
+   "IC95_llega_10R": [
+    8,
+    13
+   ],
+   "esperanza_10R": 0.0,
+   "IC95_esperanza": [
+    -0.31,
+    0.32
+   ]
+  },
+  "no": {
+   "señales": 120,
+   "llega_10R": 10.0,
+   "IC95_llega_10R": [
+    6,
+    17
+   ],
+   "esperanza_10R": 0.02,
+   "IC95_esperanza": [
+    -0.58,
+    0.61
+   ]
+  }
+ },
+ "barrido 4h": {
+  "BTC alcista": {
+   "señales": 41,
+   "llega_10R": 2.4,
+   "IC95_llega_10R": [
+    0,
+    13
+   ],
+   "esperanza_10R": -0.84,
+   "IC95_esperanza": [
+    -1.36,
+    -0.33
+   ]
+  },
+  "no": {
+   "señales": 514,
+   "llega_10R": 10.7,
+   "IC95_llega_10R": [
+    8,
+    14
+   ],
+   "esperanza_10R": 0.07,
+   "IC95_esperanza": [
+    -0.22,
+    0.37
+   ]
+  }
+ },
+ "barrido 1h": {
+  "BTC alcista": {
+   "señales": 73,
+   "llega_10R": 9.6,
+   "IC95_llega_10R": [
+    5,
+    18
+   ],
+   "esperanza_10R": -0.04,
+   "IC95_esperanza": [
+    -0.79,
+    0.71
+   ]
+  },
+  "no": {
+   "señales": 482,
+   "llega_10R": 10.2,
+   "IC95_llega_10R": [
+    8,
+    13
+   ],
+   "esperanza_10R": 0.01,
+   "IC95_esperanza": [
+    -0.29,
+    0.31
+   ]
+  }
+ }
+}
