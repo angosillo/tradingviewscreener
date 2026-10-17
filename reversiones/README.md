@@ -83,3 +83,19 @@ python3 -m reversiones.vivo --prueba       # en marcha sin Telegram (Ctrl+C para
 ```
 
 Solo necesita Python 3.10 o superior, sin librerías externas. Al arrancar carga 30 días de velas de 1 minuto de unas 140 monedas (unos 10 minutos) y luego ocupa unos 400 MB de memoria. Con poca memoria, usa `DIAS_HISTORIA=15`.
+
+## Backtest de hipótesis (`hipotesis.py` + `informe_hipotesis.py`)
+
+Un detector amplio con lo imprescindible (impulso ≥5 ATR en ≤120 min → nivel con ≥2 toques a ±1 ATR → primer mínimo más alto tras el 2.º toque → entrada al cierre de la vela que supera el máximo de la vela de ese mínimo). Las hipótesis se guardan como características de cada señal, no se exigen.
+
+- Stops: S1 = punto medio entre el primer mínimo de la zona 4 y el mínimo de entrada; S2 = mínimo de entrada − 0,3 ATR; S3 = primer mínimo de la zona 4 − 0,3 ATR.
+- Salidas: 3R, 5R, 10R o el siguiente nivel de 15 m con ≥2 reacciones a ≥3R. Cierre forzoso a las 8 h.
+- El stop salta con el precio justo; comisiones de cada par según MEXC y 1 tick de deslizamiento en la entrada.
+- Una sola operación abierta por moneda en cada variante. Primeros 2/3 del periodo para explorar y último tercio para confirmar.
+
+```bash
+python3 -m reversiones.mexc universo 250
+python3 -m reversiones.mexc descargar 30
+python3 -m reversiones.hipotesis           # → resultados/hipotesis/señales.json
+python3 -m reversiones.informe_hipotesis   # → informe.md, tablas.json, señales.csv, revisar.csv
+```

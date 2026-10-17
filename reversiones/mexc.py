@@ -9,6 +9,7 @@ Guarda en reversiones/datos/ (no se sube a git):
 Uso:
   python3 -m reversiones.mexc universo 50          # elige los 50 perpetuos cripto con más volumen
   python3 -m reversiones.mexc descargar 30         # descarga los últimos 30 días del universo
+  python3 -m reversiones.mexc descargar 30 <fin>   # …hasta un instante fijo (segundos UTC)
 """
 
 from __future__ import annotations
@@ -56,7 +57,8 @@ def universo(n: int, incluir: tuple[str, ...] = ("MERL_USDT", "AAVE_USDT")) -> l
     for s in simbolos:
         d = _get(f"{BASE}/detail?symbol={s}")
         salida.append({"simbolo": s, "taker": float(d.get("takerFeeRate") or 0),
-                       "maker": float(d.get("makerFeeRate") or 0), "tick": float(d.get("priceUnit") or 0)})
+                       "maker": float(d.get("makerFeeRate") or 0), "tick": float(d.get("priceUnit") or 0),
+                       "max_lev": int(d.get("maxLeverage") or 0), "mmr": float(d.get("maintenanceMarginRate") or 0)})
     DATOS.mkdir(parents=True, exist_ok=True)
     (DATOS / "universo.json").write_text(json.dumps(salida, indent=1))
     return salida
@@ -109,7 +111,8 @@ if __name__ == "__main__":
             print(u)
     elif sys.argv[1] == "descargar":
         dias = int(sys.argv[2])
-        fin = datetime.now(timezone.utc).replace(second=0, microsecond=0)
+        fin = (datetime.fromtimestamp(int(sys.argv[3]), timezone.utc) if len(sys.argv) > 3
+               else datetime.now(timezone.utc).replace(second=0, microsecond=0))
         simbolos = [u["simbolo"] for u in json.loads((DATOS / "universo.json").read_text())]
         with ThreadPoolExecutor(max_workers=4) as pool:
             for s in pool.map(lambda s: descargar(s, dias, fin), simbolos):
