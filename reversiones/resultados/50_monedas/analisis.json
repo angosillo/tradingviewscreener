@@ -1,0 +1,476 @@
+{
+ "monedas": 50,
+ "variantes": {
+  "base": {
+   "sin filtro": {
+    "estructuras": 358,
+    "con_toque": 120,
+    "con_aviso": 49,
+    "finales": {
+     "cierra bajo la línea 2": 229,
+     "rompió la línea 3 sin entrada": 111,
+     "entrada": 15,
+     "no llegó a la línea 3": 2,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 15,
+     "llega_1R": 60,
+     "llega_5R": 27,
+     "esp_5R": 0.52,
+     "esp_10R": 1.85
+    },
+    "B": {
+     "señales": 15,
+     "llega_1R": 60,
+     "llega_5R": 27,
+     "esp_5R": 0.55,
+     "esp_10R": 1.15
+    }
+   },
+   "con filtro": {
+    "estructuras": 41,
+    "con_toque": 17,
+    "con_aviso": 5,
+    "finales": {
+     "rompió la línea 3 sin entrada": 11,
+     "cierra bajo la línea 2": 27,
+     "entrada": 3
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "sin referencia del 2": {
+   "sin filtro": {
+    "estructuras": 387,
+    "con_toque": 126,
+    "con_aviso": 51,
+    "finales": {
+     "cierra bajo la línea 2": 252,
+     "rompió la línea 3 sin entrada": 116,
+     "entrada": 16,
+     "no llegó a la línea 3": 2,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 16,
+     "llega_1R": 56,
+     "llega_5R": 25,
+     "esp_5R": 0.42,
+     "esp_10R": 1.67
+    },
+    "B": {
+     "señales": 16,
+     "llega_1R": 62,
+     "llega_5R": 25,
+     "esp_5R": 0.45,
+     "esp_10R": 1.01
+    }
+   },
+   "con filtro": {
+    "estructuras": 44,
+    "con_toque": 20,
+    "con_aviso": 6,
+    "finales": {
+     "rompió la línea 3 sin entrada": 12,
+     "cierra bajo la línea 2": 28,
+     "entrada": 4
+    },
+    "A": {
+     "señales": 4,
+     "llega_1R": 50,
+     "llega_5R": 50,
+     "esp_5R": 1.97,
+     "esp_10R": 4.47
+    },
+    "B": {
+     "señales": 4,
+     "llega_1R": 100,
+     "llega_5R": 50,
+     "esp_5R": 1.98,
+     "esp_10R": 4.48
+    }
+   }
+  },
+  "barrido 0,3–8 ATR": {
+   "sin filtro": {
+    "estructuras": 641,
+    "con_toque": 214,
+    "con_aviso": 78,
+    "finales": {
+     "rompió la línea 3 sin entrada": 194,
+     "cierra bajo la línea 2": 416,
+     "sustituida por otra más reciente": 2,
+     "entrada": 25,
+     "no llegó a la línea 3": 3,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 25,
+     "llega_1R": 68,
+     "llega_5R": 28,
+     "esp_5R": 0.58,
+     "esp_10R": 1.98
+    },
+    "B": {
+     "señales": 25,
+     "llega_1R": 64,
+     "llega_5R": 28,
+     "esp_5R": 0.61,
+     "esp_10R": 1.57
+    }
+   },
+   "con filtro": {
+    "estructuras": 78,
+    "con_toque": 23,
+    "con_aviso": 6,
+    "finales": {
+     "rompió la línea 3 sin entrada": 20,
+     "cierra bajo la línea 2": 55,
+     "entrada": 3
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "sin barrido mínimo": {
+   "sin filtro": {
+    "estructuras": 522,
+    "con_toque": 166,
+    "con_aviso": 65,
+    "finales": {
+     "rompió la línea 3 sin entrada": 162,
+     "cierra bajo la línea 2": 333,
+     "sustituida por otra más reciente": 2,
+     "entrada": 21,
+     "no llegó a la línea 3": 3,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 21,
+     "llega_1R": 67,
+     "llega_5R": 33,
+     "esp_5R": 0.92,
+     "esp_10R": 2.58
+    },
+    "B": {
+     "señales": 21,
+     "llega_1R": 67,
+     "llega_5R": 33,
+     "esp_5R": 0.95,
+     "esp_10R": 2.09
+    }
+   },
+   "con filtro": {
+    "estructuras": 65,
+    "con_toque": 20,
+    "con_aviso": 5,
+    "finales": {
+     "cierra bajo la línea 2": 43,
+     "rompió la línea 3 sin entrada": 19,
+     "entrada": 3
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "toque a 0,5 ATR": {
+   "sin filtro": {
+    "estructuras": 358,
+    "con_toque": 143,
+    "con_aviso": 68,
+    "finales": {
+     "cierra bajo la línea 2": 227,
+     "rompió la línea 3 sin entrada": 100,
+     "entrada": 27,
+     "zona 4 demasiado larga": 2,
+     "no llegó a la línea 3": 2
+    },
+    "A": {
+     "señales": 27,
+     "llega_1R": 63,
+     "llega_5R": 19,
+     "esp_5R": -0.02,
+     "esp_10R": 0.49
+    },
+    "B": {
+     "señales": 27,
+     "llega_1R": 59,
+     "llega_5R": 22,
+     "esp_5R": 0.26,
+     "esp_10R": 0.15
+    }
+   },
+   "con filtro": {
+    "estructuras": 41,
+    "con_toque": 18,
+    "con_aviso": 6,
+    "finales": {
+     "rompió la línea 3 sin entrada": 11,
+     "cierra bajo la línea 2": 26,
+     "entrada": 4
+    },
+    "A": {
+     "señales": 4,
+     "llega_1R": 50,
+     "llega_5R": 50,
+     "esp_5R": 1.99,
+     "esp_10R": 4.49
+    },
+    "B": {
+     "señales": 4,
+     "llega_1R": 75,
+     "llega_5R": 50,
+     "esp_5R": 1.99,
+     "esp_10R": 4.49
+    }
+   }
+  },
+  "línea 3 hasta 20 ATR": {
+   "sin filtro": {
+    "estructuras": 409,
+    "con_toque": 124,
+    "con_aviso": 52,
+    "finales": {
+     "cierra bajo la línea 2": 269,
+     "rompió la línea 3 sin entrada": 114,
+     "entrada": 16,
+     "no llegó a la línea 3": 5,
+     "sustituida por otra más reciente": 2,
+     "zona 4 demasiado larga": 3
+    },
+    "A": {
+     "señales": 16,
+     "llega_1R": 62,
+     "llega_5R": 25,
+     "esp_5R": 0.42,
+     "esp_10R": 1.67
+    },
+    "B": {
+     "señales": 16,
+     "llega_1R": 62,
+     "llega_5R": 25,
+     "esp_5R": 0.45,
+     "esp_10R": 1.01
+    }
+   },
+   "con filtro": {
+    "estructuras": 47,
+    "con_toque": 17,
+    "con_aviso": 5,
+    "finales": {
+     "rompió la línea 3 sin entrada": 11,
+     "cierra bajo la línea 2": 32,
+     "entrada": 3,
+     "sustituida por otra más reciente": 1
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "zona 4 sin límite de tiempo": {
+   "sin filtro": {
+    "estructuras": 358,
+    "con_toque": 120,
+    "con_aviso": 49,
+    "finales": {
+     "cierra bajo la línea 2": 229,
+     "rompió la línea 3 sin entrada": 112,
+     "entrada": 15,
+     "no llegó a la línea 3": 2
+    },
+    "A": {
+     "señales": 15,
+     "llega_1R": 60,
+     "llega_5R": 27,
+     "esp_5R": 0.52,
+     "esp_10R": 1.85
+    },
+    "B": {
+     "señales": 15,
+     "llega_1R": 60,
+     "llega_5R": 27,
+     "esp_5R": 0.55,
+     "esp_10R": 1.15
+    }
+   },
+   "con filtro": {
+    "estructuras": 41,
+    "con_toque": 17,
+    "con_aviso": 5,
+    "finales": {
+     "rompió la línea 3 sin entrada": 11,
+     "cierra bajo la línea 2": 27,
+     "entrada": 3
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "sin retroceso mínimo de entrada": {
+   "sin filtro": {
+    "estructuras": 358,
+    "con_toque": 120,
+    "con_aviso": 49,
+    "finales": {
+     "cierra bajo la línea 2": 229,
+     "rompió la línea 3 sin entrada": 103,
+     "entrada": 23,
+     "no llegó a la línea 3": 2,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 23,
+     "llega_1R": 57,
+     "llega_5R": 22,
+     "esp_5R": 0.22,
+     "esp_10R": 1.3
+    },
+    "B": {
+     "señales": 23,
+     "llega_1R": 61,
+     "llega_5R": 22,
+     "esp_5R": 0.25,
+     "esp_10R": 0.86
+    }
+   },
+   "con filtro": {
+    "estructuras": 41,
+    "con_toque": 17,
+    "con_aviso": 5,
+    "finales": {
+     "rompió la línea 3 sin entrada": 11,
+     "cierra bajo la línea 2": 27,
+     "entrada": 3
+    },
+    "A": {
+     "señales": 3,
+     "llega_1R": 67,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    },
+    "B": {
+     "señales": 3,
+     "llega_1R": 100,
+     "llega_5R": 67,
+     "esp_5R": 2.99,
+     "esp_10R": 6.32
+    }
+   }
+  },
+  "zigzag 25 %": {
+   "sin filtro": {
+    "estructuras": 367,
+    "con_toque": 123,
+    "con_aviso": 48,
+    "finales": {
+     "cierra bajo la línea 2": 231,
+     "rompió la línea 3 sin entrada": 120,
+     "entrada": 13,
+     "no llegó a la línea 3": 2,
+     "zona 4 demasiado larga": 1
+    },
+    "A": {
+     "señales": 13,
+     "llega_1R": 46,
+     "llega_5R": 23,
+     "esp_5R": 0.35,
+     "esp_10R": 1.5
+    },
+    "B": {
+     "señales": 13,
+     "llega_1R": 54,
+     "llega_5R": 23,
+     "esp_5R": 0.37,
+     "esp_10R": 0.67
+    }
+   },
+   "con filtro": {
+    "estructuras": 37,
+    "con_toque": 14,
+    "con_aviso": 4,
+    "finales": {
+     "rompió la línea 3 sin entrada": 12,
+     "cierra bajo la línea 2": 23,
+     "entrada": 2
+    },
+    "A": {
+     "señales": 2,
+     "llega_1R": 50,
+     "llega_5R": 50,
+     "esp_5R": 2.0,
+     "esp_10R": 4.5
+    },
+    "B": {
+     "señales": 2,
+     "llega_1R": 100,
+     "llega_5R": 50,
+     "esp_5R": 2.0,
+     "esp_10R": 4.5
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,7 @@
+datos/
+__pycache__/
+*.pyc
+resultados/*.log
+datos_binance/
+resultados/**/*.log
+resultados/hipotesis/señales.json
