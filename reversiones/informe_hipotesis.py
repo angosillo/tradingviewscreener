@@ -132,7 +132,7 @@ def tabla_hipotesis(ops, stop, salida):
     return out
 
 
-def combinacion(ops, stop, salida):
+def combinacion(ops, stop, salida, umbral=0.2):
     clave = f"{stop}_{salida}_neto"
     exp = [f for f in ops if f["periodo"] == "exploración"]
     conf = [f for f in ops if f["periodo"] == "confirmación"]
@@ -149,7 +149,7 @@ def combinacion(ops, stop, salida):
         cand = [(sum(v) / len(v), k) for k, v in grupos.items() if len(v) >= MIN_N]
         if cand:
             m, k = max(cand)
-            if m - b_exp >= 0.2:
+            if m - b_exp >= umbral:
                 elegidas.append((m - b_exp, nombre, k))
     elegidas.sort(reverse=True)
 
@@ -197,6 +197,8 @@ def main():
         res["hipótesis"][f"S1 + {sal}"] = tabla_hipotesis(ops, "S1", sal)
         res["combinación"][f"S1 + {sal}"] = combinacion(variantes[("S1", "nivel")], "S1", "nivel") if sal == "nivel" else None
         res["monedas_dependencia"][f"S1 + {sal}"] = por_moneda(ops, f"S1_{sal}_neto")
+    # misma regla con un umbral más bajo (0,05R), como prueba de sensibilidad
+    res["combinación"]["S1 + nivel (umbral 0,05R)"] = combinacion(variantes[("S1", "nivel")], "S1", "nivel", 0.05)
     # la combinación elegida con S1 + nivel, vista también con S1 + 10R en confirmación
     conds = res["combinación"]["S1 + nivel"]["condiciones"]
     conf10 = [f for f in variantes[("S1", "10R")] if f["periodo"] == "confirmación"
@@ -291,7 +293,16 @@ def escribir_informe(res):
             L.append(f"| {g} | {e.get('n', 0)} / {c.get('n', 0)} | {_ic(e)} | {_ic(c)} | {_ic(e10)} | {_ic(c10)} | "
                      f"{_pct(e.get('llega_5R'))} / {_pct(e.get('llega_10R'))} |")
         L.append("")
+    cs = res["combinación"]["S1 + nivel (umbral 0,05R)"]
     cb = res["combinación"]["S1 + nivel"]
+    L += ["## Combinación elegida en exploración con umbral de 0,05R (sensibilidad)", "",
+          "Condiciones: " + "; ".join(f"{n} = {k} (+{str(d).replace('.', ',')}R)" for n, k, d in cs["condiciones"]), ""]
+    if cs["condiciones"]:
+        L += ["| | Exploración | Confirmación |", "|---|---|---|",
+              f"| Base | {cs['base_exploración']['n']} · {_ic(cs['base_exploración'])} | "
+              f"{cs['base_confirmación']['n']} · {_ic(cs['base_confirmación'])} |",
+              f"| Combinación | {cs['exploración']['n']} · {_ic(cs['exploración'])} | "
+              f"{cs['confirmación']['n']} · {_ic(cs['confirmación'])} |", ""]
     L += ["## Combinación elegida en exploración (S1 + nivel)", "",
           "Condiciones: " + ("; ".join(f"{n} = {k} (+{str(d).replace('.', ',')}R)" for n, k, d in cb["condiciones"])
                              or "ninguna supera a la base en ≥0,2R con ≥30 señales"), ""]

@@ -44,6 +44,7 @@ VENTANA_BARRIDO = 360  # el mínimo barrido está en las 6 h previas al punto 1
 DIAS_REACCIONES, DIAS_NIVELES = 3, 7
 SEP_REACCIONES = 3600  # reacciones separadas al menos 1 h
 MAX_VELAS = 480  # cierre forzoso a las 8 h
+R_MIN_ATR = 0.1  # el stop debe quedar al menos 0,1 ATR (y 1 tick) por debajo de la entrada
 OBJETIVOS = (3, 5, 10)
 STOPS = ("S1", "S2", "S3")
 SALIDAS = ("3R", "5R", "10R", "nivel")
@@ -217,7 +218,7 @@ def caracteristicas(m: Moneda, st):
          "t1_madrid": hora_madrid(t[st["T1"]]), "p1_madrid": hora_madrid(t[st["p1"]]),
          "minimo_madrid": hora_madrid(t[im]), "i": i, "im": im,
          "entrada": entrada, "minimo": mn, "primer_minimo_z4": primer, "linea3": st["L"], "linea2": st["linea2"],
-         "punto1": l[st["p1"]], "atr": ai, "toques": len(st["toques"]),
+         "punto1": l[st["p1"]], "atr": ai, "tick": tick, "toques": len(st["toques"]),
          "impulso_atr": (st["L"] - l[st["p1"]]) / a[st["T1"]], "impulso_min": st["T1"] - st["p1"]}
     for k, s in stops.items():
         f[f"stop_{k}"] = s
@@ -315,7 +316,9 @@ def procesar(args):
         for s in STOPS:
             stop = f["_stops"][s]
             R = f["entrada"] - stop
-            if R <= 0:
+            r_min = max(f["tick"], R_MIN_ATR * f["atr"])
+            f[f"{s}_valido"] = R >= r_min
+            if R < r_min:  # stop por encima de la entrada o pegado a ella: no se puede operar
                 continue
             # excursión máxima a favor y alcance de 5R/10R (sin objetivo, hasta el stop o 8 h)
             libre = simular(m, i, f["entrada"], stop, None, u["taker"])
@@ -332,7 +335,7 @@ def procesar(args):
                 f[f"{s}_{sal}_tipo"] = r["tipo"]
                 # entrada ideal en el propio mínimo (solo referencia): orden límite, comisión maker
                 mn = f["minimo"]
-                if mn > stop:
+                if mn - stop >= r_min:
                     obj_i = obj if sal == "nivel" else mn + int(sal[:-1]) * (mn - stop)
                     f[f"{s}_{sal}_ideal"] = simular(m, im, mn, stop, obj_i, u["maker"])["neto"]
             f["completa"] = libre["completa"]
