@@ -60,3 +60,26 @@ python3 -m reversiones.analisis             # embudo y ablación → resultados/
 ```
 
 Los datos se guardan en `datos/` (no se suben a git).
+
+## Radar en tiempo real (`vivo.py`)
+
+Vigila los perpetuos de MEXC minuto a minuto con el mismo detector y avisa por Telegram. **No opera.**
+
+- 🔔 **Aviso** en el 2.º toque de la línea 3 (y en cada toque siguiente), con la línea 2, la línea 3 y el mínimo anterior.
+- ✅ **Entrada** cuando se confirma el mínimo más alto, con un stop (0,3 ATR bajo el mínimo) y un objetivo de 10R orientativos.
+- ❌ **Cancelado** si se cae un patrón del que ya avisó.
+- Cada mensaje dice si **BTC está en tendencia alcista en 4 h** (por encima de su EMA20 de 4 h y con la EMA20 subiendo). En el año de Binance, las señales con BTC alcista dieron unas +0,4R por operación y las demás −0,26R.
+- Un resumen diario a las 09:00 de Madrid, para saber que sigue vivo. Todo queda registrado en `resultados/alertas.jsonl`.
+
+Solo usa la API pública de MEXC: no necesita claves de exchange. Instalación en el VPS:
+
+```bash
+git clone -b claude/tradingview-screener-market-cap-9mbgzn https://github.com/angosillo/tradingviewscreener.git
+cd tradingviewscreener
+cp .env.ejemplo .env      # y rellenar TELEGRAM_TOKEN y TELEGRAM_CHAT_ID
+python3 -m reversiones.vivo --telegram     # mensaje de prueba
+python3 -m reversiones.vivo --prueba       # en marcha sin Telegram (Ctrl+C para salir)
+# servicio permanente: ver reversiones/radar.service
+```
+
+Solo necesita Python 3.10 o superior, sin librerías externas. Al arrancar carga 30 días de velas de 1 minuto de unas 140 monedas (unos 10 minutos) y luego ocupa unos 400 MB de memoria. Con poca memoria, usa `DIAS_HISTORIA=15`.

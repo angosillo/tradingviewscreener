@@ -1,0 +1,21 @@
+# Servicio de systemd para el radar de reversiones.
+# Cambia User y las rutas si el repo no está en /home/USUARIO/tradingviewscreener.
+#   sudo cp reversiones/radar.service /etc/systemd/system/radar-reversiones.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now radar-reversiones
+#   journalctl -u radar-reversiones -f        (ver lo que hace)
+[Unit]
+Description=Radar de reversiones (MEXC, avisos por Telegram)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=USUARIO
+WorkingDirectory=/home/USUARIO/tradingviewscreener
+ExecStart=/usr/bin/python3 -m reversiones.vivo
+Restart=always
+RestartSec=30
+# Se reinicia solo cada semana para no acumular memoria
+RuntimeMaxSec=7d
+
+[Install]
+WantedBy=multi-user.target
