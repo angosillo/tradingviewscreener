@@ -96,12 +96,26 @@ def señales(simbolo, exigir_filtro, fees):
     return out, (d.t[-1] - d.t[0]) / 86400
 
 
+CASOS_DISEÑO = {("MERL", "2026-09-29 22:01"), ("AAVE", "2026-10-01 04:49")}
+
+
+def wilson(k, n, z=1.96):
+    """Intervalo de confianza del 95 % para una proporción (método de Wilson)."""
+    if n == 0:
+        return (0.0, 0.0)
+    p = k / n
+    c = (p + z * z / (2 * n)) / (1 + z * z / n)
+    m = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / (1 + z * z / n)
+    return (round(100 * (c - m)), round(100 * (c + m)))
+
+
 def resumen(filas, dias, clave, modo="res"):
     sims = [f[f"{modo}_{clave}"] for f in filas if f[f"{modo}_{clave}"]]
     n = len(sims)
     if not n:
         return {"señales": 0}
-    r = {"señales": n, "por_día": round(n / dias, 2)}
+    r = {"señales": n, "por_día": round(n / dias, 2),
+         "IC95_llega_10R": wilson(sum(s["llega"][10] for s in sims), n)}
     for k in OBJETIVOS:
         r[f"llega_{k}R"] = round(100 * sum(s["llega"][k] for s in sims) / n, 1)
     for k in FIJOS:
@@ -131,6 +145,11 @@ def main():
                 fila = {"filtro": nombre, "stop": f"{clave} ({desc})", "entrada": "cierre" if modo == "res" else "ideal"}
                 fila.update(resumen(filas, dias, clave, modo))
                 tabla.append(fila)
+            # Fuera de muestra: sin los dos casos con los que se diseñó el detector
+            fuera = [f for f in filas if (f["moneda"], f["entrada_madrid"]) not in CASOS_DISEÑO]
+            fila = {"filtro": nombre + " · sin MERL ni AAVE", "stop": f"{clave} ({desc})", "entrada": "cierre"}
+            fila.update(resumen(fuera, dias, clave, "res"))
+            tabla.append(fila)
     (RES / "tabla.json").write_text(json.dumps({"monedas": len(disponibles), "dias": round(dias, 1),
                                                 "tabla": tabla}, indent=1, ensure_ascii=False))
     # CSV de señales (corrida sin filtro, con la columna filtro_ok)

@@ -30,7 +30,7 @@ INTERVALOS = {"1m": ("Min1", 60), "4h": ("Hour4", 4 * 3600), "1d": ("Day1", 8640
 # Perpetuos que no son cripto: acciones, materias primas, índices y ETFs tokenizados
 NO_CRIPTO = ("STOCK", "XAU", "SILVER", "OIL", "SPY", "SPX", "NAS", "NICKEL", "COPPER", "GAS",
              "TESLA", "NVIDIA", "APPLE", "AMAZON", "META", "GOOGL", "MSFT", "SOXL", "KORU", "SNXX",
-             "EUR", "GBP", "JPY", "PLAT", "PALL", "XPT", "EWY", "DRAM", "MUU")
+             "EUR", "GBP", "JPY", "PLAT", "PALL", "XPT", "EWY", "DRAM", "MUU", "ZINC")
 
 
 def _get(url: str) -> dict:
