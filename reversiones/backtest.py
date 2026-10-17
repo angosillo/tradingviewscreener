@@ -31,7 +31,9 @@ FIJOS = (5, 10)
 MAX_VELAS = 48 * 60
 # Activos que no son cripto (índices, materias primas, ETFs, acciones), por nombre exacto
 EXCLUIR_EXACTO = {"ZINC", "SOXS", "UVXY", "US30", "ALUMINUM", "SI", "TQQQ", "SQQQ", "PAXG",
-                  "COINBASE", "ANTHROPIC", "OPENAI", "UNITREE"}
+                  "COINBASE", "ANTHROPIC", "OPENAI", "UNITREE",
+                  # marcados como TradFi por MEXC (plomo, ETFs, acciones, real brasileño, paladio)
+                  "LEAD", "MSTU", "XLK", "SKDD", "BRL", "XPD"}
 
 
 def es_cripto(simbolo: str) -> bool:
