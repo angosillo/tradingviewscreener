@@ -12,10 +12,10 @@ import json
 from collections import Counter
 from dataclasses import replace
 
-from .backtest import EXCLUIR, RES, simular
+from .backtest import RES, es_cripto, simular
 from .datos_simbolo import preparar, precio_justo
 from .detector import Params
-from .mexc import DATOS, NO_CRIPTO
+from .mexc import DATOS
 
 VARIANTES = {
     "base": {},
@@ -32,8 +32,7 @@ VARIANTES = {
 
 def universo():
     u = json.loads((DATOS / "universo.json").read_text())
-    return [x for x in u if (DATOS / f"{x['simbolo']}_1m_fair.csv.gz").exists()
-            and not any(k in x["simbolo"] for k in EXCLUIR + NO_CRIPTO)]
+    return [x for x in u if (DATOS / f"{x['simbolo']}_1m_fair.csv.gz").exists() and es_cripto(x["simbolo"])]
 
 
 def correr(params: Params, exigir_filtro: bool, monedas, justos):
@@ -62,18 +61,20 @@ def correr(params: Params, exigir_filtro: bool, monedas, justos):
     return out
 
 
-def main():
+def main(solo_sin_filtro: bool = False):
     monedas = universo()
     justos = {u["simbolo"]: precio_justo(u["simbolo"]) for u in monedas}
     res = {"monedas": len(monedas), "variantes": {}}
     for nombre, cambios in VARIANTES.items():
         p = replace(Params(), **cambios)
-        res["variantes"][nombre] = {"sin filtro": correr(p, False, monedas, justos),
-                                    "con filtro": correr(p, True, monedas, justos)}
+        res["variantes"][nombre] = {"sin filtro": correr(p, False, monedas, justos)}
+        if not solo_sin_filtro:
+            res["variantes"][nombre]["con filtro"] = correr(p, True, monedas, justos)
         print(nombre, json.dumps(res["variantes"][nombre], ensure_ascii=False), flush=True)
     RES.mkdir(exist_ok=True)
     (RES / "analisis.json").write_text(json.dumps(res, indent=1, ensure_ascii=False))
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(solo_sin_filtro="--sin-filtro" in sys.argv)

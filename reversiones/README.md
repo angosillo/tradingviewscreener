@@ -52,7 +52,7 @@ Todas las distancias van en ATR(14) de 1 minuto.
 ## Uso
 
 ```bash
-python3 -m reversiones.mexc universo 50     # elige los perpetuos cripto con más volumen
+python3 -m reversiones.mexc universo 150    # elige los perpetuos con más volumen (luego se excluyen los no cripto)
 python3 -m reversiones.mexc descargar 30    # últimos 30 días (MEXC no guarda más en 1 minuto)
 python3 -m reversiones.validar              # comprueba MERL y AAVE
 python3 -m reversiones.backtest             # prueba en el histórico → resultados/

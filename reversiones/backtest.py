@@ -29,7 +29,13 @@ MADRID = ZoneInfo("Europe/Madrid")
 OBJETIVOS = (1, 3, 5, 10)
 FIJOS = (5, 10)
 MAX_VELAS = 48 * 60
-EXCLUIR = ("ZINC",)
+# Activos que no son cripto (índices, materias primas, ETFs, acciones), por nombre exacto
+EXCLUIR_EXACTO = {"ZINC", "SOXS", "UVXY", "US30", "ALUMINUM", "SI", "TQQQ", "SQQQ", "PAXG",
+                  "COINBASE", "ANTHROPIC", "OPENAI", "UNITREE"}
+
+
+def es_cripto(simbolo: str) -> bool:
+    return simbolo.replace("_USDT", "") not in EXCLUIR_EXACTO and not any(k in simbolo for k in NO_CRIPTO)
 
 
 def hora_madrid(ts: int) -> str:
@@ -127,8 +133,7 @@ def main():
     RES.mkdir(exist_ok=True)
     universo = json.loads((DATOS / "universo.json").read_text())
     disponibles = [u for u in universo
-                   if (DATOS / f"{u['simbolo']}_1m_fair.csv.gz").exists()
-                   and not any(x in u["simbolo"] for x in EXCLUIR + NO_CRIPTO)]
+                   if (DATOS / f"{u['simbolo']}_1m_fair.csv.gz").exists() and es_cripto(u["simbolo"])]
     resultados = {}
     for exigir in (False, True):
         todas, dias = [], 0
