@@ -4,3 +4,4 @@ __pycache__/
 resultados/*.log
 datos_binance/
 resultados/**/*.log
+resultados/hipotesis/señales.json
